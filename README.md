@@ -8,7 +8,7 @@ following sales should be implemented:
 
 |Dates |Product |Sale Price|
 |------|--------|----------|
-|Every |Friday 8 |Cookies $6.00|
+|Every |Friday |8 Cookies $6.00|
 |Every October 1 |Any # of Key Lime Cheesecakes |25% off|
 |Every Tuesday |Mini Gingerbread Donuts |Two for one|
 
