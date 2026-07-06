@@ -1,4 +1,5 @@
 import type { CartItem, Product } from '../pricing/types';
+import Button from './Button';
 
 interface CartListProps {
   items: CartItem[]
@@ -28,13 +29,7 @@ export const CartList = ({ items, products, onQuantityChange, onRemove }: CartLi
               aria-label={`Quantity of ${product.name} in cart`}
               className="w-14 rounded-md border border-(--border) bg-(--bg) px-1.5 py-1 text-(--text-h) [font:inherit]"
             />
-            <button
-              type="button"
-              onClick={() => onRemove(item.productId)}
-              className="cursor-pointer rounded-md border border-(--border) bg-transparent px-3.5 py-1.5 text-(--text) transition-colors [font:inherit] hover:border-(--accent-border)"
-            >
-              Remove
-            </button>
+            <Button onClick={() => onRemove(item.productId)} type="secondary">Remove</Button>
           </li>
         );
       })}

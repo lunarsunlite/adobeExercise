@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import type { Product } from '../pricing/types';
+import Button from './Button';
 
 interface ProductPickerProps {
   products: Product[]
@@ -49,13 +50,7 @@ export const ProductPicker = ({ products, onAdd }: ProductPickerProps) => {
               aria-label={`Quantity of ${product.name}`}
               className="w-14 rounded-md border border-(--border) bg-(--bg) px-1.5 py-1 text-(--text-h) [font:inherit]"
             />
-            <button
-              type="button"
-              onClick={() => onAdd(product.id, quantityFor(product.id))}
-              className="cursor-pointer rounded-md border-2 border-transparent bg-(--accent-bg) px-3.5 py-1.5 text-(--accent) transition-colors [font:inherit] hover:border-(--accent-border)"
-            >
-              Add to cart
-            </button>
+            <Button onClick={() => onAdd(product.id, quantityFor(product.id))} type="primary">Add to cart</Button>
           </li>
         );
       })}

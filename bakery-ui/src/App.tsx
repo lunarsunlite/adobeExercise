@@ -4,6 +4,7 @@ import { CartList } from './components/CartList';
 import { calculateTotal } from './pricing/calculateTotal';
 import type { CartItem, Product } from './pricing/types';
 import productsData from './data/products-data.json';
+import Button from './components/Button';
 
 const products = productsData.treats as Product[];
 const CART_STORAGE_KEY = 'bakery-cart-items';
@@ -106,14 +107,9 @@ const App = () => {
       </div>
 
       <div className="flex items-center gap-4">
-        <button
-          type="button"
-          onClick={handleCalculate}
-          disabled={cartItems.length === 0}
-          className="cursor-pointer rounded-md border-2 border-transparent bg-(--accent-bg) px-6 py-2.5 text-base text-(--accent) transition-colors [font:inherit] hover:border-(--accent-border) disabled:cursor-not-allowed disabled:opacity-50"
-        >
+        <Button onClick={handleCalculate} type="primary" disabled={cartItems.length === 0}>
           Calculate
-        </button>
+        </Button>
         {total !== null && <span className="text-xl font-semibold text-(--text-h)">Total: ${total.toFixed(2)}</span>}
       </div>
     </section>
