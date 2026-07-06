@@ -18,14 +18,14 @@ export const ProductPicker = ({ products, onAdd }: ProductPickerProps) => {
   const quantityFor = (productId: number) => Math.max(1, Number(quantities[productId]) || 1);
 
   return (
-    <ul className="product-picker">
+    <ul className="m-0 flex list-none flex-col gap-2.5 p-0">
       {products.map((product) => {
         const bulkLabel = bulkPricingLabel(product);
         return (
-          <li key={product.id} className="product-row">
-            <div className="product-info">
-              <span className="product-name">{product.name}</span>
-              <span className="product-price">
+          <li key={product.id} className="flex items-center gap-2.5">
+            <div className="flex grow flex-col">
+              <span className="font-medium text-(--text-h)">{product.name}</span>
+              <span className="text-sm">
                 ${product.price.toFixed(2)} each
                 {bulkLabel ? ` • ${bulkLabel}` : ''}
               </span>
@@ -47,8 +47,13 @@ export const ProductPicker = ({ products, onAdd }: ProductPickerProps) => {
                 }))
               }
               aria-label={`Quantity of ${product.name}`}
+              className="w-14 rounded-md border border-(--border) bg-(--bg) px-1.5 py-1 text-(--text-h) [font:inherit]"
             />
-            <button type="button" onClick={() => onAdd(product.id, quantityFor(product.id))}>
+            <button
+              type="button"
+              onClick={() => onAdd(product.id, quantityFor(product.id))}
+              className="cursor-pointer rounded-md border-2 border-transparent bg-(--accent-bg) px-3.5 py-1.5 text-(--accent) transition-colors [font:inherit] hover:border-(--accent-border)"
+            >
               Add to cart
             </button>
           </li>

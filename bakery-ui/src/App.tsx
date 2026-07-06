@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import './App.css';
 import { ProductPicker } from './components/ProductPicker';
 import { CartList } from './components/CartList';
 import { calculateTotal } from './pricing/calculateTotal';
@@ -70,31 +69,32 @@ const App = () => {
   };
 
   return (
-    <section id="center">
+    <section id="center" className="flex grow flex-col items-center gap-5 px-5 py-8">
       <h1>Bakery Cart</h1>
 
-      <div className="date-picker">
+      <div className="flex items-center gap-2.5">
         <label htmlFor="cart-date">Date</label>
         <input
           id="cart-date"
           type="date"
           value={date}
-          // min={todayISO()} // Left a comment in notes.md as to why I commented this out. 
+          // min={todayISO()} // Left a comment in notes.md as to why I commented this out.
           onChange={(e) => {
             if (e.target.value < todayISO()) return;
             setDate(e.target.value);
             setTotal(null);
           }}
+          className="rounded-md border border-(--border) bg-(--bg) px-2.5 py-1.5 text-(--text-h) [font:inherit]"
         />
       </div>
 
-      <div className="cart-app">
-        <div className="panel">
+      <div className="flex w-full max-w-225 flex-wrap justify-center gap-6">
+        <div className="flex-[1_1_360px] rounded-lg border border-(--border) px-5 py-4 text-left">
           <h2>Products</h2>
           <ProductPicker products={products} onAdd={handleAdd} />
         </div>
 
-        <div className="panel">
+        <div className="flex-[1_1_360px] rounded-lg border border-(--border) px-5 py-4 text-left">
           <h2>Cart</h2>
           <CartList
             items={cartItems}
@@ -105,11 +105,16 @@ const App = () => {
         </div>
       </div>
 
-      <div className="calculate-row">
-        <button type="button" className="calculate-button" onClick={handleCalculate} disabled={cartItems.length === 0}>
+      <div className="flex items-center gap-4">
+        <button
+          type="button"
+          onClick={handleCalculate}
+          disabled={cartItems.length === 0}
+          className="cursor-pointer rounded-md border-2 border-transparent bg-(--accent-bg) px-6 py-2.5 text-base text-(--accent) transition-colors [font:inherit] hover:border-(--accent-border) disabled:cursor-not-allowed disabled:opacity-50"
+        >
           Calculate
         </button>
-        {total !== null && <span className="total">Total: ${total.toFixed(2)}</span>}
+        {total !== null && <span className="text-xl font-semibold text-(--text-h)">Total: ${total.toFixed(2)}</span>}
       </div>
     </section>
   );
