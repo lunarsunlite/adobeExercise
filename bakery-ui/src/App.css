@@ -1,0 +1,132 @@
+#center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 32px 20px;
+  flex-grow: 1;
+}
+
+.date-picker {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.date-picker input {
+  font: inherit;
+  padding: 6px 10px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text-h);
+}
+
+.cart-app {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  width: 100%;
+  max-width: 900px;
+  justify-content: center;
+}
+
+.panel {
+  flex: 1 1 360px;
+  text-align: left;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px 20px;
+}
+
+.product-picker,
+.cart-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.product-row,
+.cart-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.product-info {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.product-name {
+  color: var(--text-h);
+  font-weight: 500;
+}
+
+.product-price {
+  font-size: 14px;
+}
+
+.cart-row .product-name {
+  flex-grow: 1;
+}
+
+input[type='number'] {
+  width: 56px;
+  font: inherit;
+  padding: 4px 6px;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: var(--bg);
+  color: var(--text-h);
+}
+
+button {
+  font: inherit;
+  padding: 6px 14px;
+  border-radius: 6px;
+  color: var(--accent);
+  background: var(--accent-bg);
+  border: 2px solid transparent;
+  cursor: pointer;
+  transition: border-color 0.3s;
+
+  &:hover {
+    border-color: var(--accent-border);
+  }
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+}
+
+.remove-button {
+  color: var(--text);
+  background: transparent;
+  border: 1px solid var(--border);
+}
+
+.cart-empty {
+  color: var(--text);
+}
+
+.calculate-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.calculate-button {
+  font-size: 16px;
+  padding: 10px 24px;
+}
+
+.total {
+  font-size: 20px;
+  font-weight: 600;
+  color: var(--text-h);
+}
